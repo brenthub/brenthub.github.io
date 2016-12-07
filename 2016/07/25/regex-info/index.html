@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>正则表达式概念 | Brent Blog</title><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/4.2.0/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">正则表达式概念</h1><a id="logo" href="/.">Brent Blog</a><p class="description">Read Think Verify Accept</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">正则表达式概念</h1><div class="post-meta">Jul 25, 2016<span> | </span><span class="category"><a href="/categories/regex/">regex</a></span><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/07/25/regex-info/" href="/2016/07/25/regex-info/#comments" class="ds-thread-count"></a><div class="post-content"><p>正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。<br>给定一个正则表达式和另一个字符串，我们可以达到如下的目的：</p>
+<ol>
+<li>给定的字符串是否符合正则表达式的过滤逻辑（称作“匹配”）；</li>
+<li>可以通过正则表达式，从字符串中获取我们想要的特定部分。<br>正则表达式的特点是：</li>
+<li>灵活性、逻辑性和功能性非常的强；</li>
+<li>可以迅速地用极简单的方式达到字符串的复杂控制。</li>
+<li>对于刚接触的人来说，比较晦涩难懂。<br>由于正则表达式主要应用对象是文本，因此它在各种文本编辑器场合都有应用，小到著名编辑器EditPlus，大到Microsoft Word、Visual Studio等大型编辑器，都可以使用正则表达式来处理文本内容。</li>
+</ol>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>匹配除换行符以外的任意字符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>匹配字母或数字或下划线或汉字</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配任意的空白符</td>
+</tr>
+<tr>
+<td>\d</td>
+<td>匹配数字</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配单词的开始或结束</td>
+</tr>
+<tr>
+<td>^</td>
+<td>匹配字符串的开始</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串的结束</td>
+</tr>
+</tbody>
+</table>
+<h3 id="反义"><a href="#反义" class="headerlink" title="反义"></a>反义</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\W</td>
+<td>匹配任意不是字母，数字，下划线，汉字的字符</td>
+</tr>
+<tr>
+<td>\S</td>
+<td>匹配任意不是空白符的字符</td>
+</tr>
+<tr>
+<td>\D</td>
+<td>匹配任意非数字的字符</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配不是单词开头或结束的位置</td>
+</tr>
+<tr>
+<td>[^x]</td>
+<td>匹配除了x以外的任意字符</td>
+</tr>
+<tr>
+<td>[^aeiou]</td>
+<td>匹配除了aeiou这几个字母以外的任意字符</td>
+</tr>
+</tbody>
+</table>
+<h3 id="重复"><a href="#重复" class="headerlink" title="重复"></a>重复</h3><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>重复零次或更多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>重复一次或更多次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>重复零次或一次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>重复n次或更多次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>重复n到m次</td>
+</tr>
+</tbody>
+</table>
+<h3 id="方括号集合"><a href="#方括号集合" class="headerlink" title="方括号集合"></a>方括号集合</h3><p>如[aeiou]就匹配任何一个英文元音字母，[.?!]匹配标点符号(.或?或!)<br>如[0-9]代表的含意与\d就是完全一致的：一位数字；同理[a-z0-9A-Z_]也完全等同于\w</p>
+<h3 id="分支条件"><a href="#分支条件" class="headerlink" title="分支条件"></a>分支条件</h3><p>正则表达式里的分支条件指的是有几种规则，如果满足其中任意一种规则都应该当成匹配，具体方法是用|把不同的规则分隔开。<br>如：0\d{2}-\d{8}|0\d{3}-\d{7}这个表达式能匹配两种以连字号分隔的电话号码：一种是三位区号，8位本地号(如010-12345678)，一种是4位区号，7位本地号(0376-2233445)。</p>
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><p>正则可以用小括号来指定子表达式(也叫做分组)<br>如用正则表达式(\d{3}).(\w{3})来匹配123.abc<br>分组之后：<br>$0来代表整个匹配如123.abc<br>$1来代表第1个括号的匹配如123<br>$2来代表第2个括号的匹配如abc</p>
+<p>如果要将分组匹配的内容在后面的表达用\编号和代替<br>如：用(\w+)\s+\1 来匹配重复的单词如go go</p>
+<h3 id="后向引用"><a href="#后向引用" class="headerlink" title="后向引用"></a>后向引用</h3><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>语法</th>
+<th>说明 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>捕获</td>
+<td>(exp)</td>
+<td>匹配exp,并捕获文本到自动命名的组里</td>
+</tr>
+<tr>
+<td>捕获</td>
+<td>(?<name>exp)</name></td>
+<td>匹配exp,并捕获文本到名称为name的组里，也可以写成(?’name’exp)</td>
+</tr>
+<tr>
+<td>捕获</td>
+<td>(?:exp)</td>
+<td>匹配exp,不捕获匹配的文本，也不给此分组分配组号</td>
+</tr>
+<tr>
+<td>零宽断言</td>
+<td>(?=exp)</td>
+<td>匹配exp前面的位置</td>
+</tr>
+<tr>
+<td>零宽断言</td>
+<td>(?&lt;=exp)</td>
+<td>匹配exp后面的位置</td>
+</tr>
+<tr>
+<td>零宽断言</td>
+<td>(?!exp)</td>
+<td>匹配后面跟的不是exp的位置</td>
+</tr>
+<tr>
+<td>零宽断言</td>
+<td>(?&lt;!exp)</td>
+<td>匹配前面不是exp的位置</td>
+</tr>
+<tr>
+<td>注释</td>
+<td>(?#comment)</td>
+<td>这种类型的分组不对正则表达式的处理产生任何影响，用于提供注释让人阅读</td>
+</tr>
+</tbody>
+</table>
+<h2 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h2><h3 id="正则表达式截取字符串"><a href="#正则表达式截取字符串" class="headerlink" title="正则表达式截取字符串"></a>正则表达式截取字符串</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String str = <span class="string">" 101  @achi  200  @a低碳阴谋：中国与欧美的生死之战@ADI TAN LIN MOU@f勾红洋著  210  @a太原@c山西经济出版社  690  @aX511@v4"</span>; </div><div class="line">String regex = <span class="string">"(?&lt;= )([.]*)(?= \\d&#123;3&#125;)"</span>; </div><div class="line">String[] strs = str.split(regex); </div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strs. length; i++) &#123; </div><div class="line">    System. out.printf( <span class="string">"%s%n"</span>, strs[i]); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>打印结果为：<br> 101  @achi<br> 200  @a低碳阴谋：中国与欧美的生死之战@ADI TAN LIN MOU@f勾红洋著<br> 210  @a太原@c山西经济出版社<br> 690  @aX511@v4</p>
+<h3 id="正则截图根host"><a href="#正则截图根host" class="headerlink" title="正则截图根host"></a>正则截图根host</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">String host=<span class="string">"mms.dinpay.loc"</span>;</div><div class="line">String host2=<span class="string">"dinpay.loc"</span>;</div><div class="line">String host3=<span class="string">"eee.rr.dinpay.loc"</span>;</div><div class="line">String host4=<span class="string">".dinpay.loc"</span>;</div><div class="line">Pattern p=Pattern.compile(<span class="string">"\\.?(\\w+\\.\\w+)$"</span>);</div><div class="line">Matcher m=p.matcher(host4);</div><div class="line"><span class="keyword">if</span>(m.find())&#123;</div><div class="line">    host=m.group(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line">System.out.println(host);</div></pre></td></tr></table></figure>
+<p>匹配结果为dinpay.loc</p>
+<h3 id="正则获取host"><a href="#正则获取host" class="headerlink" title="正则获取host"></a>正则获取host</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">String reg=<span class="string">"(?&lt;=^).*\\.(?=\\w+\\.((com(\\.cn)?)|(?&lt;!com\\.)cn|net)$)"</span>;</div><div class="line">System.out.println(<span class="string">"5.aaa.com"</span>.replaceAll(reg, <span class="string">""</span>));</div><div class="line">System.out.println(<span class="string">"a.b.ccc.com"</span>.replaceAll(reg, <span class="string">""</span>));</div><div class="line">System.out.println(<span class="string">"567.com.cn"</span>.replaceAll(reg, <span class="string">""</span>));</div><div class="line">System.out.println(<span class="string">"youku.net"</span>.replaceAll(reg, <span class="string">""</span>));</div><div class="line">System.out.println(<span class="string">"youku.cn"</span>.replaceAll(reg, <span class="string">""</span>));</div><div class="line">System.out.println(<span class="string">"555.youku.cn"</span>.replaceAll(reg, <span class="string">""</span>));</div><div class="line">System.out.println(<span class="string">"11.youku.net"</span>.replaceAll(reg, <span class="string">""</span>));</div></pre></td></tr></table></figure>
+<p>打印结果为：<br>aaa.com<br>ccc.com<br>567.com.cn<br>youku.net<br>youku.cn<br>youku.cn<br>youku.net  </p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="https://brenthub.github.io/2016/07/25/regex-info/" data-id="ciwerk5hv000bocw0alcmdr19" class="article-share-link">分享到</a><div class="tags"><a href="/tags/regex/">regex</a></div><div class="post-nav"><a href="/2016/07/25/hadoop-info/" class="pre">Hadoop认识</a></div><div data-thread-key="2016/07/25/regex-info/" data-title="正则表达式概念" data-url="https://brenthub.github.io/2016/07/25/regex-info/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/07/25/regex-info/" data-title="正则表达式概念" data-url="https://brenthub.github.io/2016/07/25/regex-info/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1 pure-u-md-1-4"><div id="sidebar"><div class="widget"><form action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="search" name="word" maxlength="20" placeholder="Search"/><input type="hidden" name="si" value="https://brenthub.github.io"/><input name="tn" type="hidden" value="bds"/><input name="cl" type="hidden" value="3"/><input name="ct" type="hidden" value="2097152"/><input name="s" type="hidden" value="on"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/database/">database</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/hadoop/">hadoop</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/regex/">regex</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/server/">server</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件/">软件</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a><span class="category-list-count">1</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/cmd/" style="font-size: 15px;">cmd</a> <a href="/tags/database/" style="font-size: 15px;">database</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/systemctl/" style="font-size: 15px;">systemctl</a> <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/httpClient/" style="font-size: 15px;">httpClient</a> <a href="/tags/hadoop/" style="font-size: 15px;">hadoop</a> <a href="/tags/regex/" style="font-size: 15px;">regex</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/maven/" style="font-size: 15px;">maven</a> <a href="/tags/PLSQL/" style="font-size: 15px;">PLSQL</a> <a href="/tags/Oracle/" style="font-size: 15px;">Oracle</a> <a href="/tags/数据库/" style="font-size: 15px;">数据库</a> <a href="/tags/nginx/" style="font-size: 15px;">nginx</a> <a href="/tags/VMware/" style="font-size: 15px;">VMware</a> <a href="/tags/随笔/" style="font-size: 15px;">随笔</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/12/07/systemctl-command/">systemctl命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/12/rpm-install-mysql/">rpm安装mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/23/vmware-network/">VMware网络模式及设置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/29/jar-deploy-nexus/">Maven如何引用第三方jar包</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/28/plsql-use-optimize/">PLSQL使用调优手册</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/27/utf8-gbk-transfer/">UTF-8，GBK互转之后为什么乱码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/26/nginx-soft-download/">Nginx搭建软件下载中心</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/26/programmer-craftsman/">程序员也是手艺人</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/26/httpsurlconnection-cast-error/">HttpsURLConnectionOldImpl cannot be cast to javax.net.ssl.HttpsURLConnection解决方案</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/hadoop-info/">Hadoop认识</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://ycyx28.com/" title="Super.Yu" target="_blank">Super.Yu</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">Brent Blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>var duoshuoQuery = {short_name:'brent'};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
